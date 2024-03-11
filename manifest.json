@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "ICW-Friendly eBay Links Creator",
+  "version": "1.0",
+  "author": "Hannes Fritz",
+  "homepage_url": "https://www.achtzigzehn.net",
+
+  "description": "Converts eBay links to ICW-friendly BB-code links incl. affiliation program information. The link is created by double-clicking somewhere in the eBay item page. If successful, a notification is presented to you and you can paste the BB code directly out of the clipboard into ICW.",
+
+  "icons": {
+    "32": "icons/icw-32.ico"
+  },
+  
+  "permissions": ["notifications"],
+  
+  "background": {
+  	"scripts": ["notify.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.ebay.at/itm/*", "*://*.ebay.be/itm/*", "*://*.ebay.com/itm/*", "*://*.ebay.co.uk/itm/*", "*://*.ebay.de/itm/*", "*://*.ebay.fr/itm/*", "*://*.ebay.ie/itm/*", "*://*.ebay.nl/itm/*", "*://*.ebay.com.au/itm/*"],
+      "js": ["url-to-bb.js"]
+    }
+  ],
+ 
+  "action": {
+	  "default_icon": {
+	    "32": "icons/icw-32.ico"
+	  },
+	  "default_title": "ICW-Friendly eBay Links Creator",
+	  "theme_icons": [{
+	    "light": "icons/icw-32.ico",
+	    "dark": "icons/icw-32.ico",
+	    "size": 32
+	  }]
+  },
+  
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "ICWEBAYBBLINK-FF-EXT@achtzigzehn.net"
+    }
+  }
+}
